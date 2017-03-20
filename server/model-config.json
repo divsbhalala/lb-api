@@ -31,5 +31,11 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "user": {
+    "dataSource": "mongoDb",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }
