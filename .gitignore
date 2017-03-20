@@ -17,3 +17,9 @@
 coverage
 node_modules
 npm-debug.log
+/.env
+/upload/lbImages/bigImage/*
+/upload/lbImages/large/*
+/upload/lbImages/medium/*
+/upload/lbImages/small/*
+/upload/lbImages/thumb/*

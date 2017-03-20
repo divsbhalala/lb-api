@@ -14,28 +14,36 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "mongoDb",
+    "public": false
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "mongoDb",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mongoDb",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "mongoDb",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mongoDb",
     "public": false
   },
   "user": {
     "dataSource": "mongoDb",
     "public": true,
     "$promise": {},
-    "$resolved": true
+    "$resolved": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
+  },
+  "Email": {
+    "dataSource": "sparkpost",
+    "public": false
   }
 }

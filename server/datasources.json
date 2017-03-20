@@ -1,10 +1,10 @@
 {
-  "db": {
-    "name": "db",
-    "connector": "memory"
-  },
   "mongoDb": {
     "name": "mongoDb",
     "connector": "mongodb"
+  },
+  "sparkpost": {
+    "connector": "sparkpost",
+    "connector": "loopback-connector-sparkpost"
   }
 }
