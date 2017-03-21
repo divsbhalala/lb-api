@@ -8,7 +8,18 @@
   },
   "properties": {},
   "validations": [],
-  "relations": {},
+  "relations": {
+    "_profiles": {
+      "type": "belongsTo",
+      "model": "Profiles",
+      "foreignKey": "_profileId"
+    },
+    "_photos": {
+      "type": "belongsTo",
+      "model": "Photos",
+      "foreignKey": "_photoId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

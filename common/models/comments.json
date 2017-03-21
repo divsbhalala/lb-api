@@ -6,9 +6,26 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "comments": {
+      "type": "string",
+      "required": true,
+      "index": true
+    }
+  },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "_users": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "_userId"
+    },
+    "_parents": {
+      "type": "belongsTo",
+      "model": "Comments",
+      "foreignKey": "_parentId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

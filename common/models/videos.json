@@ -6,9 +6,37 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "videoTitle": {
+      "type": "string",
+      "index": true
+    },
+    "videoFileName": {
+      "type": "string",
+      "required": true,
+      "index": true
+    },
+    "videoDescription": {
+      "type": "string",
+      "index": true
+    },
+    "playingTime": {
+      "type": "string",
+      "index": true
+    },
+    "formate": {
+      "type": "string",
+      "index": true
+    }
+  },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "_users": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "_userId"
+    }
+  },
   "acls": [],
   "methods": {}
 }
