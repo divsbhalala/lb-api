@@ -1,5 +1,5 @@
 {
-  "name": "Comments",
+  "name": "Posts",
   "base": "PersistedModel",
   "strict": false,
   "idInjection": true,
@@ -7,37 +7,42 @@
     "validateUpsert": true
   },
   "properties": {
-    "comments": {
-      "type": "string",
-      "required": true,
-      "index": true
+  	"postTitle": {
+  		"type": "string",
+  		"required": true,
+      	"index": true
+  	},
+  	"postContent": {
+  		"type": "string",
+  		"required": true,
+      	"index": true
     },
     "createdAt": {
-      "type": "date"
+  		"type": "date"
     },
     "updatedAt": {
-      "type": "date"
+  		"type": "date"
     },
     "deletedAt": {
-      "type": "date"
+  		"type": "date"
     }
   },
   "validations": [],
   "relations": {
-    "_users": {
+  	"_users": {
       "type": "belongsTo",
       "model": "user",
       "foreignKey": "_userId"
     },
-    "_parents": {
+    "_photos": {
       "type": "belongsTo",
-      "model": "Comments",
-      "foreignKey": "_parentId"
+      "model": "Photos",
+      "foreignKey": "_photoId"
     },
-    "_posts": {
+    "_videos": {
       "type": "belongsTo",
-      "model": "Posts",
-      "foreignKey": "_postId"
+      "model": "Videos",
+      "foreignKey": "_videoId"
     }
   },
   "acls": [],

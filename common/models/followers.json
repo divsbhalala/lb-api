@@ -6,7 +6,11 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "createdAt": {
+      "type": "date"
+    }
+  },
   "validations": [],
   "relations": {
     "_users": {

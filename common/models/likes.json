@@ -1,5 +1,5 @@
 {
-  "name": "Comments",
+  "name": "Likes",
   "base": "PersistedModel",
   "strict": false,
   "idInjection": true,
@@ -7,37 +7,26 @@
     "validateUpsert": true
   },
   "properties": {
-    "comments": {
-      "type": "string",
-      "required": true,
-      "index": true
-    },
-    "createdAt": {
-      "type": "date"
-    },
-    "updatedAt": {
-      "type": "date"
-    },
-    "deletedAt": {
-      "type": "date"
+  	"createdAt": {
+  		"type": "date"
     }
   },
   "validations": [],
   "relations": {
-    "_users": {
+  	"_users": {
       "type": "belongsTo",
       "model": "user",
       "foreignKey": "_userId"
-    },
-    "_parents": {
-      "type": "belongsTo",
-      "model": "Comments",
-      "foreignKey": "_parentId"
     },
     "_posts": {
       "type": "belongsTo",
       "model": "Posts",
       "foreignKey": "_postId"
+    },
+    "_comments": {
+      "type": "belongsTo",
+      "model": "Comments",
+      "foreignKey": "_commentId"
     }
   },
   "acls": [],

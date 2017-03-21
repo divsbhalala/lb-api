@@ -36,6 +36,15 @@
     "vip": {
       "type": "boolean",
       "default": false
+    },
+    "createdAt": {
+      "type": "date"
+    },
+    "updatedAt": {
+      "type": "date"
+    },
+    "deletedAt": {
+      "type": "date"
     }
   },
   "validations": [],
