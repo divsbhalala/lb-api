@@ -4,7 +4,7 @@
     "connector": "mongodb"
   },
   "sparkpost": {
-    "connector": "sparkpost",
+    "name": "sparkpost",
     "connector": "loopback-connector-sparkpost"
   }
 }

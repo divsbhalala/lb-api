@@ -45,5 +45,41 @@
   "Email": {
     "dataSource": "sparkpost",
     "public": false
+  },
+  "Friends": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Followers": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Comments": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Photos": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Videos": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Notifications": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Profiles": {
+    "dataSource": "db",
+    "public": true
+  },
+  "MyProfilesPhotos": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Communities": {
+    "dataSource": "db",
+    "public": true
   }
 }
