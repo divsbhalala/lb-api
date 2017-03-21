@@ -2,13 +2,29 @@
   "name": "Followers",
   "base": "PersistedModel",
   "strict": false,
-  "idInjection": false,
+  "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {},
   "validations": [],
-  "relations": {},
+  "relations": {
+    "_users": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "_userId"
+    },
+    "_followers": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "_followerId"
+    },
+    "_community": {
+      "type": "belongsTo",
+      "model": "Communities",
+      "foreignKey": "_communityId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

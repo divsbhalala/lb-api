@@ -2,13 +2,30 @@
   "name": "Friends",
   "base": "PersistedModel",
   "strict": false,
-  "idInjection": false,
+  "idInjection": true,
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "status": {
+      "type": "number",
+      "required": true,
+      "enum": [1,2,3]
+    }
+  },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "_users": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "_userId"
+    },
+    "_friends": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "_friendId"
+    }
+  },
   "acls": [],
   "methods": {}
 }
