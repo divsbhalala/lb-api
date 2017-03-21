@@ -15,16 +15,7 @@ module.exports = function (user) {
     username: true,
   };
 
-  user.observe('before save', function (ctx,   next) {
-    if(ctx.instance && !ctx.instance.displayName){
-      ctx.instance.displayName=ctx.instance.username;
-      next();
-    }
-    else{
-      next();
-    }
-
-  });
+  
   //send verification email after registration
   user.afterRemote('create', function (ctx, userInstance, next) {
     //send verification mail
