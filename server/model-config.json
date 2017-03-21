@@ -81,5 +81,13 @@
   "Communities": {
     "dataSource": "mongoDb",
     "public": true
+  },
+  "Posts": {
+    "dataSource": "mongoDb",
+    "public": true
+  },
+  "Likes": {
+    "dataSource": "mongoDb",
+    "public": true
   }
 }
