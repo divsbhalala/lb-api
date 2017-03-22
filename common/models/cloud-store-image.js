@@ -6,7 +6,7 @@ const imageminPngquant = require('imagemin-pngquant');
 const fs = require('fs');
 const del = require('del');
 module.exports = function (CloudStoreImage) {
-  let app;
+  var app;
 
   const async = require('async');
   const qt = require('quickthumb');
@@ -44,28 +44,28 @@ module.exports = function (CloudStoreImage) {
   });
 
   CloudStoreImage.afterRemote('upload', function (ctx, res, next) {
-    //let header = ctx.req.headers['image-type'];
+    //var header = ctx.req.headers['image-type'];
 
-    let file = res.result.files.fileUpload[0];
-    let fileRoot = CloudStoreImage.app.datasources.fileStorageDS.settings.root;
+    var file = res.result.files.fileUpload[0];
+    var fileRoot = CloudStoreImage.app.datasources.fileStorageDS.settings.root;
 
-    let ext = getExtension(file.name);
+    var ext = getExtension(file.name);
 
-    let fileNameRoot = file.name.substr(0, file.name.length - ext.length);
+    var fileNameRoot = file.name.substr(0, file.name.length - ext.length);
 
-    let filePath = fileRoot + '/' + file.container + '/' + file.name;
+    var filePath = fileRoot + '/' + file.container + '/' + file.name;
 
-    let filePathRoot = fileRoot + '/' + file.container + '/' + fileNameRoot;
+    var filePathRoot = fileRoot + '/' + file.container + '/' + fileNameRoot;
 
-    let VALID_IMAGE_EXT = app.get('VALID_IMAGE_EXT') || [];
-    let tmpExt = ext.replace('.', '').toLowerCase();
+    var VALID_IMAGE_EXT = app.get('VALID_IMAGE_EXT') || [];
+    var tmpExt = ext.replace('.', '').toLowerCase();
     if (VALID_IMAGE_EXT.indexOf(tmpExt) < 0) {
       fs.unlink(filePath, function (err) {
         console.log('due to invalid file this file will be removed')
       })
       return next(common.badRequest("Invalid image type"))
     }
-    let resize = [{
+    var resize = [{
       width: 0, ext: '',
       filePath: filePath,
       fileName: fileNameRoot + '.jpg',
@@ -85,7 +85,7 @@ module.exports = function (CloudStoreImage) {
       }
     }));
     //console.log(resize); return;
-    /*let resize = [
+    /*var resize = [
      {
      width: 0, ext: '',
      filePath: filePath,
@@ -123,7 +123,7 @@ module.exports = function (CloudStoreImage) {
      }
      ];*/
 
-    let s3obj;
+    var s3obj;
 
     async.eachSeries(resize, function (spec, cb) {
         if (spec.width === 0) {
@@ -239,7 +239,7 @@ module.exports = function (CloudStoreImage) {
   });
 
   function getExtension(filename) {
-    let i = filename.lastIndexOf('.');
+    var i = filename.lastIndexOf('.');
     return (i < 0) ? '' : filename.substr(i);
   }
 };
