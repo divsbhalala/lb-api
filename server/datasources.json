@@ -7,6 +7,12 @@
     "name": "sparkpost",
     "connector": "loopback-connector-sparkpost"
   },
+  "fileStorageDS": {
+    "name": "fileStorageDS",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "maxFileSize": "52428800"
+  },
   "fileStorageVideo": {
     "name": "fileStorageVideo",
     "connector": "loopback-component-storage",
