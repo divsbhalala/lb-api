@@ -4,15 +4,15 @@ var moment = require('moment');
 var common = require('./../services/common');
 var _ = require("lodash");
 
-module.exports = function(Comments) {
+module.exports = function (Comments) {
   Comments.validatesPresenceOf('_userId');
   Comments.validatesPresenceOf('_parentId');
   Comments.validatesPresenceOf('_postId');
 
   // Add created date before saving data
-	Comments.beforeRemote('create', common.addCreateDate);
+  Comments.beforeRemote('create', common.addCreateDate);
 
-	//Update time before saving data
+  //Update time before saving data
   Comments.observe('before save', common.modifyUpdatedDate);
 
   Comments.observe('before save', function (ctx, next) {

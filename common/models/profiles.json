@@ -26,7 +26,7 @@
     "zone": {
       "type": "number",
       "index": true,
-      "default":1
+      "default": 1
     },
     "banner": {
       "type": "string",

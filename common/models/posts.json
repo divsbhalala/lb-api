@@ -7,28 +7,28 @@
     "validateUpsert": true
   },
   "properties": {
-  	"postTitle": {
-  		"type": "string",
-  		"required": true,
-      	"index": true
-  	},
-  	"postContent": {
-  		"type": "string",
-      	"index": true
+    "postTitle": {
+      "type": "string",
+      "required": true,
+      "index": true
+    },
+    "postContent": {
+      "type": "string",
+      "index": true
     },
     "createdAt": {
-  		"type": "date"
+      "type": "date"
     },
     "updatedAt": {
-  		"type": "date"
+      "type": "date"
     },
     "deletedAt": {
-  		"type": "date"
+      "type": "date"
     }
   },
   "validations": [],
   "relations": {
-  	"_users": {
+    "_users": {
       "type": "belongsTo",
       "model": "user",
       "foreignKey": "_userId"

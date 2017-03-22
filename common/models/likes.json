@@ -7,13 +7,13 @@
     "validateUpsert": true
   },
   "properties": {
-  	"createdAt": {
-  		"type": "date"
+    "createdAt": {
+      "type": "date"
     }
   },
   "validations": [],
   "relations": {
-  	"_users": {
+    "_users": {
       "type": "belongsTo",
       "model": "user",
       "foreignKey": "_userId"

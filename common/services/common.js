@@ -7,7 +7,7 @@ module.exports.addCreateDate = function (ctx, instance, next) {
         return;
     }
     if (ctx.args.data) {
-        ctx.args.data.createdIso = moment().toISOString();
+        ctx.args.data.createdAt = moment().toISOString();
     }
     next();
 };
@@ -15,7 +15,7 @@ module.exports.addCreateDate = function (ctx, instance, next) {
 //REF LINK ref http://stackoverflow.com/questions/32850153/strongloop-loopback-extending-built-in-user-model-with-remote-hook-results-in-e
 module.exports.modifyUpdatedDate = function (ctx, next) {
     if (ctx.data) {
-        ctx.data.updatedIso = moment().toISOString();
+        ctx.data.updatedAt = moment().toISOString();
     }
     next();
 };

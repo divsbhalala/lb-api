@@ -10,7 +10,11 @@
     "messageType": {
       "type": "number",
       "required": true,
-      "enum": [1,2,3]
+      "enum": [
+        1,
+        2,
+        3
+      ]
     },
     "createdAt": {
       "type": "date"

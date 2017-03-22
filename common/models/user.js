@@ -1,13 +1,18 @@
 'use strict';
 const path = require('path');
 const moment = require('moment');
-const  _= require('lodash');
-const  common= require('./../services/common');
+const _ = require('lodash');
+const common = require('./../services/common');
 //require('dotenv').load();
 module.exports = function (user) {
 
   user.validatesUniquenessOf('email');
   user.validatesUniquenessOf('username');
+  // Add created date before saving data
+  user.beforeRemote('create', common.addCreateDate);
+
+  //Update time before saving data
+  user.observe('before save', common.modifyUpdatedDate);
   var userFields = {
     firstName: true,
     lastName: true,
@@ -15,7 +20,7 @@ module.exports = function (user) {
     username: true,
   };
 
-  
+
   //send verification email after registration
   user.afterRemote('create', function (ctx, userInstance, next) {
     //send verification mail
@@ -311,35 +316,35 @@ module.exports = function (user) {
   };
 
 
-  user.isUserNameExists= function(username, cb){
+  user.isUserNameExists = function (username, cb) {
 
     if (!username || username === '{username}') {
       return common.notFound('User\s username is required', cb);
     }
-    user.find({where:{username:username}}, function(err, data){
-      if(err){
+    user.find({where: {username: username}}, function (err, data) {
+      if (err) {
         return cb(err);
       }
-      if(data.length){
-        return common.conflict('Username is already exists',cb)
+      if (data.length) {
+        return common.conflict('Username is already exists', cb)
       }
-      return cb(null,data);
+      return cb(null, data);
     })
   };
 
-  user.isEmailExists= function(email, cb){
+  user.isEmailExists = function (email, cb) {
 
     if (!email || email === '{email}') {
       return common.notFound('User\s email is required', cb);
     }
-    user.find({filter:{where:{email:email}}}, function(err, data){
-      if(err){
+    user.find({filter: {where: {email: email}}}, function (err, data) {
+      if (err) {
         return cb(err);
       }
-      if(data.length){
-        return common.conflict('email is already exists',cb)
+      if (data.length) {
+        return common.conflict('email is already exists', cb)
       }
-      return cb(null,data);
+      return cb(null, data);
     })
   };
 

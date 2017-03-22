@@ -4,15 +4,15 @@ var moment = require('moment');
 var common = require('./../services/common');
 var _ = require("lodash");
 
-module.exports = function(Followers) {
+module.exports = function (Followers) {
   Followers.validatesPresenceOf('_followerId');
 
   // Add created date before saving data
-	Followers.beforeRemote('create', common.addCreateDate);
+  Followers.beforeRemote('create', common.addCreateDate);
 
-	//Update time before saving data
-  	Followers.observe('before save', common.modifyUpdatedDate);
-  	Followers.observe('before save', function (ctx, next) {
+  //Update time before saving data
+  Followers.observe('before save', common.modifyUpdatedDate);
+  Followers.observe('before save', function (ctx, next) {
     var data = {};
     if (ctx.instance) {
       data = ctx.instance;
@@ -26,8 +26,8 @@ module.exports = function(Followers) {
       next();
     }
     var currentUser = common.getUsers(Article.app);
-    if(_.isEmpty(data._userId) && _.isEmpty(data._communityId)){
-    	return next(common.badRequest('userId or communityId is required.'))
+    if (_.isEmpty(data._userId) && _.isEmpty(data._communityId)) {
+      return next(common.badRequest('userId or communityId is required.'))
     }
 
     //TODO REASSIGN
