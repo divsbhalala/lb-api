@@ -55,6 +55,6 @@
   ],
   "methods": {},
   "mixins": {
-    "SoftDelete" : true
+    "softDelete": true
   }
 }
