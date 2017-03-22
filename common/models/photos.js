@@ -5,7 +5,9 @@ var common = require('./../services/common');
 var _ = require("lodash");
 
 module.exports = function(Photos) {
-	// Add created date before saving data
+  Photos.validatesPresenceOf('_userId');
+
+  // Add created date before saving data
 	Photos.beforeRemote('create', common.addCreateDate);
 
 	//Update time before saving data

@@ -5,7 +5,10 @@ var common = require('./../services/common');
 var _ = require("lodash");
 
 module.exports = function(Notifications) {
-	// Add created date before saving data
+  Notifications.validatesPresenceOf('_receiverId');
+  Notifications.validatesPresenceOf('_senderId');
+
+  // Add created date before saving data
 	Notifications.beforeRemote('create', common.addCreateDate);
 
 	//Update time before saving data

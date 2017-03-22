@@ -5,7 +5,9 @@ var common = require('./../services/common');
 var _ = require("lodash");
 
 module.exports = function(Profiles) {
-	// Add created date before saving data
+  Profiles.validatesPresenceOf('_userId');
+
+  // Add created date before saving data
 	Profiles.beforeRemote('create', common.addCreateDate);
 
 	//Update time before saving data
