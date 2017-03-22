@@ -20,5 +20,67 @@
     "cors": false
   },
   "legacyExplorer": false,
-  "logoutSessionsOnSensitiveChanges": true
+  "logoutSessionsOnSensitiveChanges": true,
+  "cloudStoreImages": {
+    "contentType": "image/jpeg",
+    "imageSize": [
+      {
+        "width": 100,
+        "height": 100,
+        "folder": "small/"
+      },
+      {
+        "width": 300,
+        "height": 200,
+        "folder": "thumb/"
+      },
+      {
+        "width": 720,
+        "height": 720,
+        "folder": "medium/"
+      },
+      {
+        "width": 1500,
+        "height": 1500,
+        "folder": "bigImage/"
+      },
+      {
+        "width": 1200,
+        "height": 1200,
+        "folder": "large/"
+      }
+    ],
+    "small": {
+      "width": 100,
+      "height": 100,
+      "folder": "small/"
+    },
+    "thumb": {
+      "width": 300,
+      "height": 200,
+      "folder": "thumb/"
+    },
+    "medium": {
+      "width": 1028,
+      "height": 720,
+      "folder": "medium/"
+    },
+    "bigImage": {
+      "width": 1500,
+      "height": 1500,
+      "folder": "bigImage/"
+    },
+    "large": {
+      "width": 1200,
+      "height": 1200,
+      "folder": "large/"
+    },
+    "smallExt": ".jpg",
+    "smallWidth": 75,
+    "mediumExt": ".jpg",
+    "mediumWidth": 500,
+    "largeExt": ".jpg",
+    "largeWidth": 1200,
+    "s3": {}
+  }
 }
