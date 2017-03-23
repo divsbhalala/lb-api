@@ -31,16 +31,18 @@ module.exports = function (CloudStoreImage) {
     AWS.config.region = app.get('cloudStoreImages').s3.region;
   });
 
-  CloudStoreImage.beforeRemote('upload', function (ctx, unused, next) {
-    // Sample getting header
-    //console.info("I GOT HEADER: " , ctx.req.headers);
 
-    /*if (!ctx.req.headers['image-type']) {
-     return next('Header \'image-type\' is required.');
-     }
-     */
+  CloudStoreImage.afterRemoteError('**', function(ctx, next) {
+    console.log('herere')
+    console.log(ctx.error)
+    //if (!ctx.error.details) ctx.error.details = {};
+    //ctx.error.details.info = 'intercepted by a hook';
+    var error=ctx.error;
+    if(error.toString().indexOf('maxFileSize exceeded')){
+      return next(common.badRequest('maxFileSize exceeded'));
+    }
+    return next();
 
-    next();
   });
 
   CloudStoreImage.afterRemote('upload', function (ctx, res, next) {
