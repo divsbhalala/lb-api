@@ -10,13 +10,11 @@
   "fileStorageDS": {
     "name": "fileStorageDS",
     "connector": "loopback-component-storage",
-    "provider": "filesystem",
-    "maxFileSize": "52428800"
+    "provider": "filesystem"
   },
   "fileStorageVideo": {
     "name": "fileStorageVideo",
     "connector": "loopback-component-storage",
-    "provider": "filesystem",
-    "maxFileSize": "52428800"
+    "provider": "filesystem"
   }
 }
