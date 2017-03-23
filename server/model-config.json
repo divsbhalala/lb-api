@@ -89,5 +89,9 @@
   "Likes": {
     "dataSource": "mongoDb",
     "public": true
+  },
+  "CloudStoreVideo": {
+    "dataSource": "fileStorageVideo",
+    "public": true
   }
 }
