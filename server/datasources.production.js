@@ -28,7 +28,7 @@ module.exports = {
     root: "./upload",
     acl: 'public-read',
 
-    maxFileSize: 100 * 1024 * 1024,
+    maxFileSize: process.env.MAX_VIDEO_UPLOAD_SIZE * 1024 *1024,
     getFilename: function (fileInfo) {
       var fileName = fileInfo.name.replace(/\s+/g, '-').toLowerCase();
       return 'video-' + new Date().getTime() + '-' + fileName;
