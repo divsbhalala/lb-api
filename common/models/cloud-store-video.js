@@ -15,6 +15,15 @@ module.exports = function (CloudStoreVideo) {
   CloudStoreVideo.disableRemoteMethod('removeFile', true);
   CloudStoreVideo.disableRemoteMethod('getFiles', true);
   CloudStoreVideo.disableRemoteMethod('getFile', true);
+  CloudStoreVideo.afterRemoteError('**', function(ctx, next) {
+    //if (!ctx.error.details) ctx.error.details = {};
+    //ctx.error.details.info = 'intercepted by a hook';
+    var error=ctx.error;
+    if(error.toString().indexOf('maxFileSize exceeded')){
+      return next(common.badRequest('maxFileSize exceeded'));
+    }
+    return next();
+  });
 
   CloudStoreVideo.on('attached', function () {
     app = CloudStoreVideo.app;

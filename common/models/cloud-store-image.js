@@ -33,8 +33,6 @@ module.exports = function (CloudStoreImage) {
 
 
   CloudStoreImage.afterRemoteError('**', function(ctx, next) {
-    console.log('herere')
-    console.log(ctx.error)
     //if (!ctx.error.details) ctx.error.details = {};
     //ctx.error.details.info = 'intercepted by a hook';
     var error=ctx.error;
@@ -42,7 +40,6 @@ module.exports = function (CloudStoreImage) {
       return next(common.badRequest('maxFileSize exceeded'));
     }
     return next();
-
   });
 
   CloudStoreImage.afterRemote('upload', function (ctx, res, next) {
@@ -157,12 +154,12 @@ module.exports = function (CloudStoreImage) {
             if (fs.existsSync(spec.filePath)) {
 
               /*imageOptimize.pngToJpg(spec.filePath, spec.filePath.replace('.png', '.jpg')).then(function (data) {
-                console.log('png2jpg', data);
-                //spec.filePath = spec.filePath.replace('.png', '.jpg')
+               console.log('png2jpg', data);
+               //spec.filePath = spec.filePath.replace('.png', '.jpg')
 
-              }).catch(function (err) {
-                console.log('png2jpg err', err);
-              })*/
+               }).catch(function (err) {
+               console.log('png2jpg err', err);
+               })*/
               imagemin([spec.srcPath + '*.{png}'], spec.srcPath, {
                 plugins: [
                   imageminMozjpeg({targa: false}),
@@ -170,8 +167,8 @@ module.exports = function (CloudStoreImage) {
                 ]
               }).then(function (files) {
                 /*if (fs.existsSync(spec.filePath.replace('.png', '.jpg'))) {
-                  spec.filePath = spec.filePath.replace('.png', '.jpg');
-                }*/
+                 spec.filePath = spec.filePath.replace('.png', '.jpg');
+                 }*/
                 fs.readFile(spec.filePath, function (err, buffer) {
 
                   s3obj = new AWS.S3(
