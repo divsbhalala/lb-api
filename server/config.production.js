@@ -16,8 +16,7 @@ module.exports = {
     },
     cacheControl:1296000,
   },
-  VALID_IMAGE_EXT: ['jpg', 'jpeg', 'png', 'gif']
-  APIKEY: process.env.APIKEY,
+  VALID_IMAGE_EXT: ['jpg', 'jpeg', 'png', 'gif'],
   cloudStoreVideos: {
     s3: {
       bucket: process.env.AWS_S3_BUCKET ,
