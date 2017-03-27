@@ -34,6 +34,14 @@ module.exports = function (Comments) {
       return next(common.badRequest('Invalid userId.'))
     }
 
+    if(!common.isValidId(data._postId)){
+      return next(common.badRequest('Invalid postId.'))
+    }
+
+    if(!common.isEmpty(data._parentId) && !common.isValidId(data._parentId)){
+      return next(common.badRequest('Invalid _parentId.'))
+    }
+
     //TODO REASSIGN
     if (ctx.instance) {
       ctx.instance = data;
