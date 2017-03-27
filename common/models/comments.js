@@ -28,8 +28,11 @@ module.exports = function (Comments) {
     else {
       next();
     }
-    var currentUser = common.getUsers(Article.app);
-
+    var currentUser = common.getUsers(Comments.app);
+    data._userId=currentUser.id || data._userId;
+    if(!common.isValidId(data._userId)){
+      return next(common.badRequest('Invalid userId.'))
+    }
 
     //TODO REASSIGN
     if (ctx.instance) {
@@ -45,7 +48,7 @@ module.exports = function (Comments) {
 
 
   Comments.observe('loaded', function (ctx, next) {
-    var currentUser = common.getUsers(Article.app);
+    var currentUser = common.getUsers(Comments.app);
     ctx.instance = _.map(ctx.instance, function (item, key) {
       if (item && key === '__data') {
         //TODO return all item

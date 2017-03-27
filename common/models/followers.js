@@ -25,9 +25,16 @@ module.exports = function (Followers) {
     else {
       next();
     }
-    var currentUser = common.getUsers(Article.app);
-    if (_.isEmpty(data._userId) && _.isEmpty(data._communityId)) {
+    var currentUser = common.getUsers(Followers.app);
+    if (_.isEmpty(data._userId) || _.isEmpty(data._communityId)) {
       return next(common.badRequest('userId or communityId is required.'))
+    }
+    if ((!_.isEmpty(data._userId) && !common.isValidId(data._userId)) || ( !_.isEmpty(data._communityId) && !common.isValidId(data._communityId))) {
+      return next(common.badRequest('Invalid userId or communityId.'))
+    }
+    data._followerId=currentUser.id || data._followerId;
+    if(!common.isValidId(data._followerId)){
+      return next(common.badRequest('Invalid followerId.'))
     }
 
     //TODO REASSIGN

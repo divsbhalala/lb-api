@@ -25,9 +25,17 @@ module.exports = function (Posts) {
     else {
       next();
     }
-    var currentUser = common.getUsers(Article.app);
-    if (_.isEmpty(data._photoId) && _.isEmpty(data._videoId) && _.isEmpty(data.postContent)) {
+    var currentUser = common.getUsers(Posts.app);
+    if (_.isEmpty(data._photoId) || _.isEmpty(data._videoId) || _.isEmpty(data.postContent)) {
       return next(common.badRequest('Invalid post data.'))
+    }
+
+    if ((!_.isEmpty(data._photoId) && !common.isValidId(data._photoId)) || ( !_.isEmpty(data._videoId) && !common.isValidId(data._videoId))) {
+      return next(common.badRequest('Invalid photoId or videoId.'))
+    }
+
+    if(!common.isValidId(data._userId)){
+      return next(common.badRequest('Invalid userId.'))
     }
 
     //TODO REASSIGN

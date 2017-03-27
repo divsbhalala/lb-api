@@ -51,6 +51,7 @@
   ],
   "methods": {},
   "mixins": {
-    "softDelete": true
+    "softDelete": true,
+    "checkIntegrityThroughModel": { }
   }
 }
