@@ -13,6 +13,9 @@
     "realm",
     "emailVerified"
   ],
+  "mixins": {
+    "softDelete": true
+  },
   "properties": {
     "firstName": {
       "type": "string",
@@ -133,8 +136,5 @@
       ]
     }
   ],
-  "methods": {},
-  "mixins": {
-    "softDelete": true
-  }
+  "methods": {}
 }

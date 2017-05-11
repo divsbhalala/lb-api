@@ -25,9 +25,9 @@ module.exports = function (user) {
   user.afterRemote('create', function (ctx, userInstance, next) {
     //send verification mail
     var options = {
-/*      host: user.app.get('UIHOST'),
+      host: user.app.get('UIHOST'),
       protocol: user.app.get('UIPROTOCOL'),
-      port: user.app.get('UIPORT'),*/
+      port: user.app.get('UIPORT'),
       text: 'Please activate your account by clicking on this link or copying and pasting it in a new browser window:\n\t {href}',
       html: 'Please activate your account by clicking on this link or copying and pasting it in a new browser window:\n\t <a href="{href}">Verify Account</a>',
       type: 'email',
@@ -279,14 +279,14 @@ module.exports = function (user) {
         return common.badRequest('Email is already verified', cb);
       }
       var options = {
-        /*host: user.app.get('UIHOST'),
+        host: user.app.get('UIHOST'),
         protocol: user.app.get('UIPROTOCOL'),
-        port: user.app.get('UIPORT'),*/
+        port: user.app.get('UIPORT'),
         text: 'Please activate your account by clicking on this link or copying and pasting it in a new browser window:\n\t <a href="{href}">Verify Account</a>',
         type: 'email',
         to: userInstance.email,
         from: user.app.get('EMAILFROM'),
-        subject: 'Blavity Verification link.',
+        subject: 'Verification link.',
         template: path.resolve(__dirname, '../../server/views/verify.ejs'),
         redirect: user.app.get('UIURL') + '/login-success',
         user: userInstance
