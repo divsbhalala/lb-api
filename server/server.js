@@ -13,47 +13,47 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencodedapp = module.exports = loopback();
 app.use(LoopBackContext.perRequest());
 app.use(loopback.token());
-app.use(function setCurrentUser(req, res, next) {
-  //console.log(req);
-  var RoleMapping=app.models.RoleMapping;
-  var Role=app.models.Role;
-  app.currentUser=undefined;
-  app.currentRole=[];
-  if (!req.accessToken) {
-    return next();
-  }
-  app.models.user.findOne({where: {id:req.accessToken.userId}}, function(err, user) {
-    if (err) {
-      return next(err);
-    }
-    if (!user) {
-      return next(new Error('No user with this access token was found.'));
-    }
-    app.currentUser=user;
-    //Fetching user current role
-    RoleMapping.find({ where : { 	"principalType" : "USER"}}, function (err, roleMappings) {
-      var roleIds = _.uniq(roleMappings
-        .map(function (roleMapping) {
-          if(roleMapping.principalId == app.currentUser.__data.id)
-            return roleMapping.roleId;
-        }));
-      var conditions = roleIds.map(function (roleId) {
-        return roleId;
-      });
-      if(!_.isEmpty(conditions)){
-        Role.findByIds(conditions, function (err, roles) {
-          var roleNames = roles.map(function(role) {
-            return role.name;
-          });
-          console.log(roleNames);
-          app.currentRole=roleNames;
-        });
-      }
-      next();
-    });
-
-  });
-});
+// app.use(function setCurrentUser(req, res, next) {
+//   //console.log(req);
+//   var RoleMapping=app.models.RoleMapping;
+//   var Role=app.models.Role;
+//   app.currentUser=undefined;
+//   app.currentRole=[];
+//   if (!req.accessToken) {
+//     return next();
+//   }
+//   app.models.user.findOne({where: {id:req.accessToken.userId}}, function(err, user) {
+//     if (err) {
+//       return next(err);
+//     }
+//     if (!user) {
+//       return next(new Error('No user with this access token was found.'));
+//     }
+//     app.currentUser=user;
+//     //Fetching user current role
+//     RoleMapping.find({ where : { 	"principalType" : "USER"}}, function (err, roleMappings) {
+//       var roleIds = _.uniq(roleMappings
+//         .map(function (roleMapping) {
+//           if(roleMapping.principalId == app.currentUser.__data.id)
+//             return roleMapping.roleId;
+//         }));
+//       var conditions = roleIds.map(function (roleId) {
+//         return roleId;
+//       });
+//       if(!_.isEmpty(conditions)){
+//         Role.findByIds(conditions, function (err, roles) {
+//           var roleNames = roles.map(function(role) {
+//             return role.name;
+//           });
+//           console.log(roleNames);
+//           app.currentRole=roleNames;
+//         });
+//       }
+//       next();
+//     });
+//
+//   });
+// });
 app.start = function() {
   // start the web server
   var server= app.listen(function() {

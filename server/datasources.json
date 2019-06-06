@@ -3,10 +3,6 @@
     "name": "mongoDb",
     "connector": "mongodb"
   },
-  "sparkpost": {
-    "name": "sparkpost",
-    "connector": "loopback-connector-sparkpost"
-  },
   "fileStorageDS": {
     "name": "fileStorageDS",
     "connector": "loopback-component-storage",

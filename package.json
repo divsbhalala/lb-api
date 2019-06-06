@@ -15,8 +15,8 @@
     "slc-follow": "slc runctl --log-dump lb-blog-api --follow"
   },
   "dependencies": {
-    "aws-sdk": "^2.2.4",
     "async": "^2.1.5",
+    "aws-sdk": "^2.2.4",
     "body-parser": "^1.16.1",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
@@ -31,20 +31,20 @@
     "loopback": "^2.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^2.4.0",
+    "loopback-component-storage": "^1.5.1",
     "loopback-connector-mongodb": "^1.17.0",
     "loopback-connector-sparkpost": "0.0.5",
-    "loopback-component-storage": "^3.0.1",
     "loopback-context": "^3.1.0",
     "loopback-datasource-juggler": "^2.39.0",
     "loopback-softdelete-mixin": "0.0.6",
-    "loopback-component-storage": "^1.5.1",
-    "quickthumb": "0.0.11",
     "moment": "^2.17.1",
     "morgan": "^1.8.1",
     "nodemailer": "^3.1.3",
     "path": "^0.12.7",
+    "quickthumb": "0.0.11",
     "serve-favicon": "^2.0.1",
     "slug": "^0.9.1",
+    "sparkpost": "^2.1.3",
     "strong-error-handler": "^1.0.1"
   },
   "devDependencies": {

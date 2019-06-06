@@ -14,82 +14,9 @@
       "./mixins"
     ]
   },
-  "User": {
-    "dataSource": "mongoDb",
-    "public": false
-  },
-  "AccessToken": {
-    "dataSource": "mongoDb",
-    "public": false
-  },
   "ACL": {
     "dataSource": "mongoDb",
     "public": false
-  },
-  "RoleMapping": {
-    "dataSource": "mongoDb",
-    "public": false
-  },
-  "Role": {
-    "dataSource": "mongoDb",
-    "public": false
-  },
-  "user": {
-    "dataSource": "mongoDb",
-    "public": true,
-    "$promise": {},
-    "$resolved": true,
-    "options": {
-      "emailVerificationRequired": true
-    }
-  },
-  "Email": {
-    "dataSource": "sparkpost",
-    "public": false
-  },
-  "Friends": {
-    "dataSource": "mongoDb",
-    "public": true
-  },
-  "Followers": {
-    "dataSource": "mongoDb",
-    "public": true
-  },
-  "Comments": {
-    "dataSource": "mongoDb",
-    "public": true
-  },
-  "Photos": {
-    "dataSource": "mongoDb",
-    "public": true
-  },
-  "Videos": {
-    "dataSource": "mongoDb",
-    "public": true
-  },
-  "Notifications": {
-    "dataSource": "mongoDb",
-    "public": true
-  },
-  "Profiles": {
-    "dataSource": "mongoDb",
-    "public": true
-  },
-  "MyProfilesPhotos": {
-    "dataSource": "mongoDb",
-    "public": true
-  },
-  "Communities": {
-    "dataSource": "mongoDb",
-    "public": true
-  },
-  "Posts": {
-    "dataSource": "mongoDb",
-    "public": true
-  },
-  "Likes": {
-    "dataSource": "mongoDb",
-    "public": true
   },
   "CloudStoreImage": {
     "dataSource": "fileStorageDS",
