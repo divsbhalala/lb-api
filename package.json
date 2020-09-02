@@ -31,7 +31,7 @@
     "loopback": "^2.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^2.4.0",
-    "loopback-connector-mongodb": "^1.17.0",
+    "loopback-connector-mongodb": "^5.3.0",
     "loopback-connector-sparkpost": "0.0.5",
     "loopback-component-storage": "^3.0.1",
     "loopback-context": "^3.1.0",
